@@ -1,0 +1,278 @@
+<style>
+
+.product-discount-inner{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid black;
+}
+
+.product-discount-inner:first-child{
+  border:0px;
+}
+
+.product-discount-inner img{
+      padding: 20px;
+}
+
+.product-discount-text{
+    border-left: 1px solid;
+    padding-left: 20px;
+}
+
+.product-discount-text:first-child{
+    border-left: 0px;
+    padding-left:0px;
+}
+
+.copy-coupon-code{
+      padding: 2px;
+    background: #f0f0f0;
+    border: 3px dashed black;
+}
+
+.copy-coupon-code svg{
+  margin-left:10px;
+  cursor:pointer;
+}
+
+.discount-percentage{
+  display:none;
+}
+
+
+.additional-discount{
+  display:none;
+}
+
+.discount-percentage-other{
+    display:none;
+}
+
+</style>
+
+{% when 'discount' %}
+      <div class="product__block product-discount-main">
+       
+        <div class="product-discount-inner">
+           <div class="product-discount-text">
+
+<p class="discount-percentage"> {{ block.settings.discount }}</p>
+<p> BEST BUY at <b style="color:red">Rs. {{ rounded_price }}</b> with coupon</p>
+
+             <p class="additional-discount">{{ block.settings.add-discount }}</p>
+
+        <p> {{ block.settings.text }}</p>
+                 <p class="copy-coupon-code"> {{ block.settings.coupon }} 
+        <svg class="copy-offer"  stroke="#000000" xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none" class="copy_code">
+      <path d="M3.81096 13.4359C3.47789 13.4359 3.19164 13.3189 2.95219 13.0848C2.71275 12.8506 2.59303 12.5671 2.59303 12.234V1.52894C2.59303 1.19587 2.71275 0.912283 2.95219 0.678172C3.19164 0.444075 3.47789 0.327026 3.81096 0.327026H12C12.3277 0.327026 12.61 0.44438 12.8468 0.679089C13.0835 0.913797 13.2019 1.19708 13.2019 1.52894V12.234C13.2019 12.5617 13.0835 12.844 12.8468 13.0808C12.61 13.3175 12.3277 13.4359 12 13.4359H3.81096ZM3.81096 12.4904H12C12.0801 12.4904 12.1429 12.465 12.1883 12.4143C12.2337 12.3635 12.2564 12.3034 12.2564 12.234V1.52894C12.2564 1.4488 12.2337 1.38603 12.1883 1.34063C12.1429 1.29521 12.0801 1.27251 12 1.27251H3.81096C3.73617 1.27251 3.67207 1.29521 3.61865 1.34063C3.56522 1.38603 3.53851 1.4488 3.53851 1.52894V12.234C3.53851 12.3034 3.56522 12.3635 3.61865 12.4143C3.67207 12.465 3.73617 12.4904 3.81096 12.4904ZM1.48726 15.7436C1.15953 15.7436 0.877284 15.6252 0.640506 15.3884C0.403728 15.1516 0.285339 14.8694 0.285339 14.5417V3.78215C0.285339 3.64794 0.330943 3.5356 0.422152 3.44511C0.513346 3.35464 0.626589 3.3094 0.761881 3.3094C0.897173 3.3094 1.00915 3.35464 1.09782 3.44511C1.1865 3.5356 1.23084 3.64794 1.23084 3.78215V14.5417C1.23084 14.6058 1.25755 14.6645 1.31096 14.718C1.36438 14.7714 1.42314 14.7981 1.48726 14.7981H9.60736C9.74158 14.7981 9.85393 14.8437 9.9444 14.9349C10.0349 15.0261 10.0801 15.1394 10.0801 15.2747C10.0801 15.4099 10.0349 15.5219 9.9444 15.6106C9.85393 15.6993 9.74158 15.7436 9.60736 15.7436H1.48726Z" fill="#29421B"></path>
+    </svg>
+                   </p>
+           </div>
+        </div>
+
+            
+ <h3>{{ block.settings.heading }} </h3>
+
+                {% if block.settings.text1 != blank %}
+        <div class="product-discount-inner">
+        <img src="https://cdn.shopify.com/s/files/1/0440/6162/2423/files/offer_icon-1_20x_55783903-4aa7-4fd6-acc5-0be2c324a93f.webp?v=1717491360"/>
+           <div class="product-discount-text">
+
+             
+<p class="discount-percentage-other"> {{ block.settings.discount1 }}</p>
+
+<p> </p>
+
+        <p> {{ block.settings.text1 }}</p>
+    
+           </div>
+        </div>
+        {% endif %}
+
+                        {% if block.settings.text2 != blank %}
+        <div class="product-discount-inner">
+        <img src="https://cdn.shopify.com/s/files/1/0440/6162/2423/files/offer_icon-1_20x_55783903-4aa7-4fd6-acc5-0be2c324a93f.webp?v=1717491360"/>
+           <div class="product-discount-text">
+
+<p class="discount-percentage-other"> {{ block.settings.discount2 }}</p>
+<p> </p>
+
+        <p> {{ block.settings.text2 }}</p>
+           </div>
+        </div>
+        {% endif %}
+
+
+              {% if block.settings.text3 != blank %}           
+        <div class="product-discount-inner">
+        <img src="https://cdn.shopify.com/s/files/1/0440/6162/2423/files/offer_icon-1_20x_55783903-4aa7-4fd6-acc5-0be2c324a93f.webp?v=1717491360"/>
+           <div class="product-discount-text">
+
+<p class="discount-percentage-other"> {{ block.settings.discount3 }}</p>
+<p></p>
+
+       
+           </div>
+        </div>
+   {% endif %}
+        
+        
+       </div>
+
+              <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var svgElement = document.querySelector('.copy-offer');
+  var couponTextElement = document.querySelector('.copy-coupon-code');
+
+
+  svgElement.addEventListener('click', function() {
+    // Get the coupon text
+    var couponText = couponTextElement.textContent.trim();
+
+    // Copy the text to clipboard
+    navigator.clipboard.writeText(couponText).then(function() {
+      // Change the SVG to "Text Copied"
+      svgElement.outerHTML = '<span>Text Copied</span>';
+    }).catch(function(error) {
+      console.error('Failed to copy text: ', error);
+    });
+  });
+
+  function updateCouponText() {
+    let priceElement = document.querySelector('.price-item'); // Adjust this selector to match the price element in your HTML
+    let couponTextElement = document.querySelector('.product-discount-text p');
+    let additionalDiscount = document.querySelector(".additional-discount").innerHTML;
+
+
+    // Get the selected price
+    let selectedPriceText = priceElement.textContent.trim();
+
+      let numberString = selectedPriceText.replace('Rs.', '').replace(',' , '');
+  
+  // Convert to number
+  let selectedPrice = parseInt(numberString);
+
+    // Calculate the discounted price
+    let discountPercentage = document.querySelectorAll('.discount-percentage');
+     let discountPercentageother = document.querySelectorAll('.discount-percentage-other');
+
+   discountPercentage.forEach((e)=>{
+
+       let discountAmount = (selectedPrice * parseInt(e.innerHTML)) / 100;
+    let discountedPrice = selectedPrice - discountAmount;
+
+     let newadditionDst =( +additionalDiscount * +discountedPrice) / 100;
+
+     let adddst = discountedPrice - newadditionDst;
+  
+if(+e.innerHTML > 0){
+    // Update the coupon text element with the discounted price
+    e.nextElementSibling.innerHTML = `BEST BUY at <b style="color:red">₹  ${Math.ceil(adddst.toFixed(2))}</b> with coupon`;
+}
+      
+    });
+
+
+      discountPercentageother.forEach((e)=>{
+
+       let discountAmount = (selectedPrice * parseInt(e.innerHTML)) / 100;
+    let discountedPrice = selectedPrice - discountAmount;
+
+        console.log(discountedPrice)
+  
+if(+e.innerHTML > 0){
+    // Update the coupon text element with the discounted price
+    e.nextElementSibling.innerHTML = `Get this for <b style="color:red">₹  ${Math.ceil(discountedPrice.toFixed(2))}</b>`;
+}
+      
+    });
+  
+  }
+
+  // Add event listener to variant change
+  let variantSelectors = document.querySelectorAll('.radio__button'); // Adjust this selector to match your variant selectors
+  variantSelectors.forEach(selector => {
+    selector.addEventListener('change', updateCouponText);
+  });
+
+  // Initial update of coupon text
+  updateCouponText();
+  
+});
+</script>
+
+
+{% schema %}
+
+{
+        "type": "discount",
+        "name": "Discount Coupon",
+        "limit": 1,
+        "settings": [
+           {
+            "type": "richtext",
+            "id": "heading",
+            "label": "Heading",
+            "default": "<p></p>"
+          },
+            {
+            "type": "text",
+            "id": "coupon",
+            "label": "Coupon",
+            "default": "Coupon"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Discount Text",
+            "default": "<p></p>"
+          },
+               {
+            "type": "number",
+            "id": "discount",
+            "label": "Discount Percentage"
+          },
+             {
+            "type": "number",
+            "id": "add-discount",
+            "label": "Additional Discount Percentage"
+          },
+            {
+            "type": "richtext",
+            "id": "text1",
+            "label": "Discount Text",
+            "default": "<p></p>"
+          },
+               {
+            "type": "number",
+            "id": "discount1",
+            "label": "Discount Percentage"
+          },
+           {
+            "type": "richtext",
+            "id": "text2",
+            "label": "Discount Text",
+            "default": "<p></p>"
+          },
+               {
+            "type": "number",
+            "id": "discount2",
+            "label": "Discount Percentage"
+          },
+           {
+            "type": "richtext",
+            "id": "text3",
+            "label": "Discount Text",
+            "default": "<p></p>"
+          },
+               {
+            "type": "number",
+            "id": "discount3",
+            "label": "Discount Percentage"
+          }
+        ]
+      },
+
+{% endschema %}
